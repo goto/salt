@@ -1,7 +1,6 @@
 # Mux
 
-`mux` package provides helpers for starting multiple servers. HTTP and gRPC
-servers are supported currently.
+`mux` package provides protocol multiplexing for HTTP & gRPC servers.
 
 ## Usage
 
