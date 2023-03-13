@@ -7,10 +7,10 @@ import (
 
 	"github.com/google/go-cmp/cmp"
 	"github.com/google/go-cmp/cmp/cmpopts"
+	"github.com/goto/salt/audit"
+	"github.com/goto/salt/audit/repositories"
+	"github.com/goto/salt/log"
 	"github.com/jmoiron/sqlx/types"
-	"github.com/odpf/salt/audit"
-	"github.com/odpf/salt/audit/repositories"
-	"github.com/odpf/salt/log"
 	"github.com/stretchr/testify/suite"
 )
 

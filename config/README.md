@@ -11,7 +11,7 @@ import (
 	"encoding/json"
 	"fmt"
 
-	"github.com/odpf/salt/config"
+	"github.com/goto/salt/config"
 )
 
 type Config struct {

@@ -3,7 +3,7 @@ package printer
 import (
 	"fmt"
 
-	"github.com/odpf/salt/term"
+	"github.com/goto/salt/term"
 )
 
 func Success(t ...string) {

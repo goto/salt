@@ -15,7 +15,7 @@ import (
 
 	"go.uber.org/zap"
 
-	"github.com/odpf/salt/log"
+	"github.com/goto/salt/log"
 )
 
 type zapBufWriter struct {

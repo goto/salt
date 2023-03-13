@@ -6,7 +6,7 @@ import (
 	"log"
 	"testing"
 
-	"github.com/odpf/salt/db"
+	"github.com/goto/salt/db"
 	"github.com/stretchr/testify/assert"
 )
 
