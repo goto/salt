@@ -8,10 +8,10 @@ import (
 	"syscall"
 	"time"
 
+	"github.com/goto/salt/common"
+	"github.com/goto/salt/mux"
+	commonv1 "github.com/goto/salt/server/example/proto/gotocompany/common/v1"
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/odpf/salt/common"
-	"github.com/odpf/salt/mux"
-	commonv1 "go.buf.build/odpf/gw/odpf/proton/odpf/common/v1"
 	"google.golang.org/grpc"
 	"google.golang.org/grpc/reflection"
 )

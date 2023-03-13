@@ -3,7 +3,7 @@ package common
 import (
 	"context"
 
-	commonv1 "go.buf.build/odpf/gw/odpf/proton/odpf/common/v1"
+	commonv1 "github.com/goto/salt/server/example/proto/gotocompany/common/v1"
 )
 
 type CommonService struct {

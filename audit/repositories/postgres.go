@@ -7,8 +7,8 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/goto/salt/audit"
 	"github.com/jmoiron/sqlx/types"
-	"github.com/odpf/salt/audit"
 )
 
 type AuditModel struct {

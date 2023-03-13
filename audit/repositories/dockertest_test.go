@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"time"
 
+	"github.com/goto/salt/audit/repositories"
+	"github.com/goto/salt/log"
 	_ "github.com/lib/pq"
-	"github.com/odpf/salt/audit/repositories"
-	"github.com/odpf/salt/log"
 	"github.com/ory/dockertest/v3"
 	"github.com/ory/dockertest/v3/docker"
 )

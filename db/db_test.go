@@ -9,8 +9,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/goto/salt/db"
 	"github.com/jmoiron/sqlx"
-	"github.com/odpf/salt/db"
 	"github.com/ory/dockertest/v3"
 	"github.com/ory/dockertest/v3/docker"
 	"github.com/stretchr/testify/assert"
