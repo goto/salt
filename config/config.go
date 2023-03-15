@@ -137,7 +137,11 @@ func NewLoader(options ...LoaderOption) *Loader {
 		v: getViperWithDefaults(),
 		opts: []viper.DecoderConfigOption{
 			viper.DecodeHook(
-				StringToJsonFunc(),
+				mapstructure.ComposeDecodeHookFunc(
+					StringToJsonFunc(),
+					mapstructure.StringToTimeDurationHookFunc(),
+					mapstructure.StringToSliceHookFunc(","),
+				),
 			),
 		},
 	}
