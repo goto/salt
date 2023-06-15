@@ -109,7 +109,7 @@ func CreateCortex(opts ...dockerCortexOption) (*dockerCortex, error) {
 		},
 		Cmd: []string{
 			fmt.Sprintf("-target=%s", dc.moduleName),
-			"-config.file=/etc/single-process-config.yaml",
+			"-config.file=/etc/single_process_cortex.yaml",
 			fmt.Sprintf("-ruler.storage.s3.endpoint=%s", dc.s3URL),
 			fmt.Sprintf("-ruler.alertmanager-url=%s", dc.alertManagerURL),
 			fmt.Sprintf("-alertmanager.storage.s3.endpoint=%s", dc.s3URL),
@@ -157,8 +157,8 @@ func CreateCortex(opts ...dockerCortexOption) (*dockerCortex, error) {
 			}
 			config.Mounts = []docker.HostMount{
 				{
-					Target: "/etc/single-process-config.yaml",
-					Source: fmt.Sprintf("%s/configs/cortex/single_process_cortex.yaml", thisFileFolder),
+					Target: "/etc",
+					Source: fmt.Sprintf("%s/configs/cortex", thisFileFolder),
 					Type:   "bind",
 				},
 				{
