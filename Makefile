@@ -4,7 +4,7 @@
 check: test lint ## Run tests and linters
 
 test: ## Run tests
-	go test ./... -race
+	go test -race $(shell go list ./... | grep -v /db)
 
 lint: ## Run linter
 	golangci-lint run

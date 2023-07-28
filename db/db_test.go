@@ -18,7 +18,7 @@ import (
 
 const (
 	dialect  = "postgres"
-	user     = "root"
+	user     = "postgres"
 	password = "pass"
 	database = "postgres"
 	host     = "localhost"
