@@ -17,7 +17,6 @@ const (
 	GOTOCOMPANY_CONFIG_DIR = "GOTOCOMPANY_CONFIG_DIR"
 	XDG_CONFIG_HOME        = "XDG_CONFIG_HOME"
 	APP_DATA               = "AppData"
-	LOCAL_APP_DATA         = "LocalAppData"
 )
 
 type ConfigLoaderOpt func(c *Config)
@@ -25,6 +24,12 @@ type ConfigLoaderOpt func(c *Config)
 func WithFlags(pfs *pflag.FlagSet) ConfigLoaderOpt {
 	return func(c *Config) {
 		c.boundedPFlags = pfs
+	}
+}
+
+func WithLoaderOptions(opts ...config.LoaderOption) ConfigLoaderOpt {
+	return func(c *Config) {
+		c.loaderOpts = append(c.loaderOpts, opts...)
 	}
 }
 
@@ -39,6 +44,7 @@ func SetConfig(app string) *Config {
 type Config struct {
 	filename      string
 	boundedPFlags *pflag.FlagSet
+	loaderOpts    []config.LoaderOption
 }
 
 func (c *Config) File() string {
@@ -86,10 +92,10 @@ func (c *Config) Load(cfg interface{}, opts ...ConfigLoaderOpt) error {
 	}
 
 	loaderOpts := []config.LoaderOption{config.WithFile(c.filename)}
-
 	if c.boundedPFlags != nil {
 		loaderOpts = append(loaderOpts, config.WithBindPFlags(c.boundedPFlags, cfg))
 	}
+	loaderOpts = append(loaderOpts, c.loaderOpts...)
 
 	loader := config.NewLoader(loaderOpts...)
 
