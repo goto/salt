@@ -40,6 +40,10 @@ func (z Zap) Level() string {
 	return z.conf.Level.String()
 }
 
+func (z Zap) GetLevel() string {
+	return z.Level()
+}
+
 func (z Zap) Writer() io.Writer {
 	panic("not supported")
 }

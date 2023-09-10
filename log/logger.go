@@ -48,4 +48,7 @@ type Logger interface {
 
 	// Writer used to print logs
 	Writer() io.Writer
+
+	// GetLevel is an alias of Level()
+	GetLevel() string
 }

@@ -16,6 +16,11 @@ func (n *Noop) Fatal(msg string, args ...interface{}) {}
 func (n *Noop) Level() string {
 	return "unsupported"
 }
+
+func (n *Noop) GetLevel() string {
+	return n.Level()
+}
+
 func (n *Noop) Writer() io.Writer {
 	return ioutil.Discard
 }

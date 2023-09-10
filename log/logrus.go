@@ -44,6 +44,10 @@ func (l *Logrus) Level() string {
 	return l.log.Level.String()
 }
 
+func (l *Logrus) GetLevel() string {
+	return l.Level()
+}
+
 func (l *Logrus) Writer() io.Writer {
 	return l.log.Writer()
 }
