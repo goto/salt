@@ -11,7 +11,7 @@ require (
 	github.com/briandowns/spinner v1.18.0
 	github.com/charmbracelet/glamour v0.3.0
 	github.com/cli/safeexec v1.0.0
-	github.com/golang-migrate/migrate/v4 v4.15.2
+	github.com/golang-migrate/migrate/v4 v4.16.0
 	github.com/google/go-cmp v0.5.9
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/google/uuid v1.3.0
@@ -22,7 +22,7 @@ require (
 	github.com/hashicorp/go-version v1.3.0
 	github.com/jeremywohl/flatten v1.0.1
 	github.com/jmoiron/sqlx v1.3.5
-	github.com/lib/pq v1.10.0
+	github.com/lib/pq v1.10.2
 	github.com/mattn/go-isatty v0.0.17
 	github.com/mcuadros/go-defaults v1.2.0
 	github.com/mitchellh/mapstructure v1.4.1
@@ -31,8 +31,9 @@ require (
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/ory/dockertest/v3 v3.9.1
 	github.com/pkg/errors v0.9.1
+	github.com/prometheus/client_golang v1.17.0 // indirect
 	github.com/schollz/progressbar/v3 v3.8.5
-	github.com/sirupsen/logrus v1.8.1
+	github.com/sirupsen/logrus v1.9.2
 	github.com/soheilhy/cmux v0.1.5
 	github.com/spf13/cobra v1.2.1
 	github.com/spf13/pflag v1.0.5
