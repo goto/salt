@@ -80,3 +80,7 @@ func (r *PostgresRepository) Insert(ctx context.Context, l *audit.Log) error {
 
 	return nil
 }
+
+func (r *PostgresRepository) List(ctx context.Context, filter audit.Filter) ([]audit.Log, error) {
+	return nil, audit.ErrNotImplemented
+}
