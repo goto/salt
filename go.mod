@@ -5,7 +5,7 @@ go 1.21
 toolchain go1.21.8
 
 require (
-	github.com/AlecAivazis/survey/v2 v2.3.5
+	github.com/AlecAivazis/survey/v2 v2.3.6
 	github.com/MakeNowJust/heredoc v1.0.0
 	github.com/NYTimes/gziphandler v1.1.1
 	github.com/authzed/authzed-go v0.7.0
@@ -18,17 +18,18 @@ require (
 	github.com/google/shlex v0.0.0-20191202100458-e7afc7fbc510
 	github.com/google/uuid v1.3.1
 	github.com/gorilla/mux v1.8.0
+	github.com/goto/optimus v0.12.2
 	github.com/grpc-ecosystem/go-grpc-middleware v1.4.0
 	github.com/grpc-ecosystem/go-grpc-prometheus v1.2.0
 	github.com/grpc-ecosystem/grpc-gateway/v2 v2.16.0
 	github.com/hashicorp/go-version v1.3.0
 	github.com/jeremywohl/flatten v1.0.1
 	github.com/jmoiron/sqlx v1.3.5
-	github.com/lib/pq v1.10.2
+	github.com/lib/pq v1.10.4
 	github.com/mattn/go-isatty v0.0.17
 	github.com/mcuadros/go-defaults v1.2.0
-	github.com/mitchellh/mapstructure v1.4.1
-	github.com/muesli/termenv v0.9.0
+	github.com/mitchellh/mapstructure v1.4.3
+	github.com/muesli/termenv v0.11.1-0.20220212125758-44cd13922739
 	github.com/oklog/run v1.1.0
 	github.com/olekukonko/tablewriter v0.0.5
 	github.com/ory/dockertest/v3 v3.9.1
@@ -51,7 +52,7 @@ require (
 	go.opentelemetry.io/otel/metric v1.27.0
 	go.opentelemetry.io/otel/sdk v1.27.0
 	go.opentelemetry.io/otel/sdk/metric v1.27.0
-	go.uber.org/zap v1.19.0
+	go.uber.org/zap v1.21.0
 	golang.org/x/oauth2 v0.13.0
 	golang.org/x/text v0.13.0
 	google.golang.org/api v0.128.0
@@ -85,7 +86,7 @@ require (
 	github.com/envoyproxy/protoc-gen-validate v1.0.2 // indirect
 	github.com/fatih/color v1.7.0 // indirect
 	github.com/felixge/httpsnoop v1.0.4 // indirect
-	github.com/fsnotify/fsnotify v1.4.9 // indirect
+	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/go-logr/logr v1.4.1 // indirect
 	github.com/go-logr/stdr v1.2.2 // indirect
 	github.com/go-ole/go-ole v1.2.6 // indirect
@@ -114,7 +115,7 @@ require (
 	github.com/microcosm-cc/bluemonday v1.0.6 // indirect
 	github.com/mitchellh/colorstring v0.0.0-20190213212951-d06e56a500db // indirect
 	github.com/moby/term v0.5.0 // indirect
-	github.com/muesli/reflow v0.2.0 // indirect
+	github.com/muesli/reflow v0.3.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.0.2 // indirect
 	github.com/opencontainers/runc v1.1.2 // indirect
@@ -146,8 +147,8 @@ require (
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/otel/trace v1.27.0 // indirect
 	go.opentelemetry.io/proto/otlp v1.0.0 // indirect
-	go.uber.org/atomic v1.7.0 // indirect
-	go.uber.org/multierr v1.6.0 // indirect
+	go.uber.org/atomic v1.10.0 // indirect
+	go.uber.org/multierr v1.8.0 // indirect
 	golang.org/x/crypto v0.14.0 // indirect
 	golang.org/x/mod v0.11.0 // indirect
 	golang.org/x/net v0.17.0 // indirect
