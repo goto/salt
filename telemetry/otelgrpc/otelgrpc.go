@@ -32,7 +32,7 @@ type Monitor struct {
 }
 
 func NewOtelGRPCMonitor(hostName string) Monitor {
-	meter := otel.Meter("github.com/goto/meteor/metrics/otelgrpc")
+	meter := otel.Meter("github.com/goto/salt/telemetry/otelgrpc")
 
 	duration, err := meter.Int64Histogram("rpc.client.duration", metric.WithUnit("ms"))
 	handleOtelErr(err)

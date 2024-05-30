@@ -7,8 +7,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/goto/salt/telemetry/otelgrpc"
 	pb "github.com/goto/optimus/protos/gotocompany/optimus/core/v1beta1"
+	"github.com/goto/salt/telemetry/otelgrpc"
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/otel/attribute"
 	semconv "go.opentelemetry.io/otel/semconv/v1.20.0"
