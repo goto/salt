@@ -36,10 +36,14 @@ func Test_otelGRPCMonitor_Record(t *testing.T) {
 	})
 	assert.Equal(t, initialAttr, mt.GetAttributes())
 
+	version := &commonv1.Version{
+		Version: "1.0.0",
+	}
+
 	mt.RecordUnary(context.Background(), otelgrpc.UnaryParams{
 		Start:  time.Now(),
 		Method: "",
-		Req:    &commonv1.GetVersionRequest{},
+		Req:    &commonv1.GetVersionRequest{Client: version},
 		Res:    nil,
 		Err:    nil,
 	})
@@ -82,10 +86,13 @@ func Test_parseFullMethod(t *testing.T) {
 }
 
 func Test_getProtoSize(t *testing.T) {
-	req := &commonv1.GetVersionResponse{}
+	version := &commonv1.Version{
+		Version: "1.0.0",
+	}
+	req := &commonv1.GetVersionResponse{Server: version}
 
-	if got := otelgrpc.GetProtoSize(req); got != 0 {
-		t.Errorf("getProtoSize() = %v, want %v", got, 0)
+	if got := otelgrpc.GetProtoSize(req); got != 9 {
+		t.Errorf("getProtoSize() = %v, want %v", got, 9)
 	}
 }
 
