@@ -44,7 +44,6 @@ func WithMeterName(meterName string) Option {
 }
 
 func NewMeter(hostName string, opts ...Option) Meter {
-
 	meterOpts := &MeterOpts{}
 
 	for _, opt := range opts {
