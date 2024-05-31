@@ -2,6 +2,8 @@ module github.com/goto/salt
 
 go 1.21
 
+toolchain go1.21.8
+
 require (
 	github.com/AlecAivazis/survey/v2 v2.3.6
 	github.com/MakeNowJust/heredoc v1.0.0
