@@ -35,15 +35,23 @@ type MeterOpts struct {
 	meterName string
 }
 
-func WithMeterName(meterName string) MeterOpts {
-	return MeterOpts{
-		meterName: meterName,
+type Option func(*MeterOpts)
+
+func WithMeterName(meterName string) Option {
+	return func(opts *MeterOpts) {
+		opts.meterName = meterName
 	}
 }
 
-func NewMeter(hostName string, meterOpts ...MeterOpts) Meter {
-	meter := otel.Meter("github.com/goto/salt/telemetry/otelgrpc")
+func NewMeter(hostName string, opts ...Option) Meter {
 
+	meterOpts := &MeterOpts{}
+
+	for _, opt := range opts {
+		opt(meterOpts)
+	}
+
+	meter := otel.Meter(meterOpts.meterName)
 	duration, err := meter.Int64Histogram("rpc.client.duration", metric.WithUnit("ms"))
 	handleOtelErr(err)
 
