@@ -7,7 +7,7 @@ import (
 	"testing"
 	"time"
 
-	pb "github.com/goto/optimus/protos/gotocompany/optimus/core/v1beta1"
+	commonv1 "github.com/goto/salt/server/example/proto/gotocompany/common/v1"
 	"github.com/goto/salt/telemetry/otelgrpc"
 	"github.com/stretchr/testify/assert"
 	"go.opentelemetry.io/otel/attribute"
@@ -15,7 +15,7 @@ import (
 )
 
 func Test_otelGRPCMonitor_Record(t *testing.T) {
-	mt := otelgrpc.NewOtelGRPCMonitor("localhost:1001")
+	mt := otelgrpc.NewMeter("localhost:1001", otelgrpc.WithMeterName("/meterName"))
 	assert.NotNil(t, mt)
 	initialAttr := mt.GetAttributes()
 
@@ -39,7 +39,7 @@ func Test_otelGRPCMonitor_Record(t *testing.T) {
 	mt.RecordUnary(context.Background(), otelgrpc.UnaryParams{
 		Start:  time.Now(),
 		Method: "",
-		Req:    &pb.ListProjectsRequest{},
+		Req:    &commonv1.GetVersionRequest{},
 		Res:    nil,
 		Err:    nil,
 	})
@@ -82,12 +82,10 @@ func Test_parseFullMethod(t *testing.T) {
 }
 
 func Test_getProtoSize(t *testing.T) {
-	req := &pb.ListProjectNamespacesRequest{
-		ProjectName: "asd",
-	}
+	req := &commonv1.GetVersionResponse{}
 
-	if got := otelgrpc.GetProtoSize(req); got != 5 {
-		t.Errorf("getProtoSize() = %v, want %v", got, 5)
+	if got := otelgrpc.GetProtoSize(req); got != 0 {
+		t.Errorf("getProtoSize() = %v, want %v", got, 0)
 	}
 }
 

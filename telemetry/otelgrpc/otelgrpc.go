@@ -24,14 +24,24 @@ type UnaryParams struct {
 	Err    error
 }
 
-type Monitor struct {
+type Meter struct {
 	duration     metric.Int64Histogram
 	requestSize  metric.Int64Histogram
 	responseSize metric.Int64Histogram
 	attributes   []attribute.KeyValue
 }
 
-func NewOtelGRPCMonitor(hostName string) Monitor {
+type MeterOpts struct {
+	meterName string
+}
+
+func WithMeterName(meterName string) MeterOpts {
+	return MeterOpts{
+		meterName: meterName,
+	}
+}
+
+func NewMeter(hostName string, meterOpts ...MeterOpts) Meter {
 	meter := otel.Meter("github.com/goto/salt/telemetry/otelgrpc")
 
 	duration, err := meter.Int64Histogram("rpc.client.duration", metric.WithUnit("ms"))
@@ -45,7 +55,7 @@ func NewOtelGRPCMonitor(hostName string) Monitor {
 
 	addr, port := ExtractAddress(hostName)
 
-	return Monitor{
+	return Meter{
 		duration:     duration,
 		requestSize:  requestSize,
 		responseSize: responseSize,
@@ -63,11 +73,13 @@ func GetProtoSize(p any) int {
 		return 0
 	}
 
-	size := proto.Size(p.(proto.Message))
-	return size
+	if pm, ok := p.(proto.Message); ok {
+		return proto.Size(pm)
+	}
+	return 0
 }
 
-func (m *Monitor) RecordUnary(ctx context.Context, p UnaryParams) {
+func (m *Meter) RecordUnary(ctx context.Context, p UnaryParams) {
 	reqSize := GetProtoSize(p.Req)
 	resSize := GetProtoSize(p.Res)
 
@@ -90,7 +102,7 @@ func (m *Monitor) RecordUnary(ctx context.Context, p UnaryParams) {
 		metric.WithAttributes(attrs...))
 }
 
-func (m *Monitor) RecordStream(ctx context.Context, start time.Time, method string, err error) {
+func (m *Meter) RecordStream(ctx context.Context, start time.Time, method string, err error) {
 	attrs := make([]attribute.KeyValue, len(m.attributes))
 	copy(attrs, m.attributes)
 	attrs = append(attrs, attribute.String("rpc.grpc.status_text", utils.StatusText(err)))
@@ -102,7 +114,7 @@ func (m *Monitor) RecordStream(ctx context.Context, start time.Time, method stri
 		metric.WithAttributes(attrs...))
 }
 
-func (m *Monitor) UnaryClientInterceptor() grpc.UnaryClientInterceptor {
+func (m *Meter) UnaryClientInterceptor() grpc.UnaryClientInterceptor {
 	return func(ctx context.Context,
 		method string,
 		req, reply interface{},
@@ -123,7 +135,7 @@ func (m *Monitor) UnaryClientInterceptor() grpc.UnaryClientInterceptor {
 	}
 }
 
-func (m *Monitor) StreamClientInterceptor() grpc.StreamClientInterceptor {
+func (m *Meter) StreamClientInterceptor() grpc.StreamClientInterceptor {
 	return func(ctx context.Context,
 		desc *grpc.StreamDesc,
 		cc *grpc.ClientConn,
@@ -139,7 +151,7 @@ func (m *Monitor) StreamClientInterceptor() grpc.StreamClientInterceptor {
 	}
 }
 
-func (m *Monitor) GetAttributes() []attribute.KeyValue {
+func (m *Meter) GetAttributes() []attribute.KeyValue {
 	return m.attributes
 }
 
