@@ -32,7 +32,7 @@ type Meter struct {
 }
 
 type MeterOpts struct {
-	meterName string
+	meterName string `default:"github.com/goto/salt/telemetry/otelgrpc"`
 }
 
 type Option func(*MeterOpts)
