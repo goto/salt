@@ -6,14 +6,14 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/goto/salt/common"
+	"github.com/goto/salt/server"
+	commonv1 "github.com/goto/salt/server/example/proto/gotocompany/common/v1"
 	grpc_middleware "github.com/grpc-ecosystem/go-grpc-middleware"
 	grpc_zap "github.com/grpc-ecosystem/go-grpc-middleware/logging/zap"
 	grpc_recovery "github.com/grpc-ecosystem/go-grpc-middleware/recovery"
 	grpc_ctxtags "github.com/grpc-ecosystem/go-grpc-middleware/tags"
 	grpc_prometheus "github.com/grpc-ecosystem/go-grpc-prometheus"
-	"github.com/odpf/salt/common"
-	"github.com/odpf/salt/server"
-	commonv1 "go.buf.build/odpf/gw/odpf/proton/odpf/common/v1"
 	"go.uber.org/zap"
 	"google.golang.org/grpc"
 )
