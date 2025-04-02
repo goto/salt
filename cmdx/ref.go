@@ -6,7 +6,7 @@ import (
 	"io"
 	"strings"
 
-	"github.com/odpf/salt/printer"
+	"github.com/goto/salt/printer"
 	"github.com/spf13/cobra"
 )
 

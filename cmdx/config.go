@@ -8,7 +8,7 @@ import (
 	"runtime"
 
 	"github.com/mcuadros/go-defaults"
-	"github.com/odpf/salt/config"
+	"github.com/goto/salt/config"
 	"gopkg.in/yaml.v3"
 )
 

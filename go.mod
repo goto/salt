@@ -1,4 +1,4 @@
-module github.com/odpf/salt
+module github.com/goto/salt
 
 go 1.16
 

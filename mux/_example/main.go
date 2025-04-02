@@ -10,8 +10,8 @@ import (
 	"google.golang.org/grpc"
 
 	"github.com/grpc-ecosystem/grpc-gateway/v2/runtime"
-	"github.com/odpf/salt/common"
-	"github.com/odpf/salt/mux"
+	"github.com/goto/salt/common"
+	"github.com/goto/salt/mux"
 )
 
 func main() {

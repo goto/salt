@@ -8,8 +8,8 @@ import (
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
-	"github.com/odpf/salt/audit"
-	"github.com/odpf/salt/audit/repositories"
+	"github.com/goto/salt/audit"
+	"github.com/goto/salt/audit/repositories"
 	"github.com/stretchr/testify/suite"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"

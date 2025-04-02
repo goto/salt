@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/odpf/salt/audit"
+	"github.com/goto/salt/audit"
 	"gorm.io/datatypes"
 	"gorm.io/gorm"
 )

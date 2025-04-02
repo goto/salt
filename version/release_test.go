@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/gorilla/mux"
-	"github.com/odpf/salt/version"
+	"github.com/goto/salt/version"
 	"github.com/stretchr/testify/assert"
 )
 
